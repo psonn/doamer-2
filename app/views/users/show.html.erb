@@ -1,2 +1,17 @@
-<%= image_tag @user.avatar.url(:medium), class: "img-circle" %>
-<%= @user.email %>
+<div class="main">
+    <div class="cover">
+        <img src="https://c.o0bg.com/rf/image_1200w/Boston/2011-2020/2015/11/11/BostonGlobe.com/BigPicture/Images/2015-11-11T173902Z_1576878953_GF20000055180_RTRMADP_3_USA-VETERANSDAY-4452.jpg" />
+    </div>
+    <div class="profile">
+        <%= image_tag @user.avatar.url(:medium) %>
+    </div>
+    <div id="name">
+    <h1>
+      <%= @user.first_name %> <%= @user.last_name %> <small>@<%= @user.username %></small>
+    </h1>
+    </div>
+</div>
+<p>
+<%= @user.email %><br />
+Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
+</p>
