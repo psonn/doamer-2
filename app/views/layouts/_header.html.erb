@@ -37,14 +37,13 @@
                 Edit account
               <% end %>
             </li> 
-            <li class="divider"></li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <span class="glyphicon glyphicon-log-out"></span> Log out
-              <% end %>
-            </li>
             </ul>
           </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <span class="glyphicon glyphicon-log-out"></span>
+              <% end %>
+            </li>
         <% else %>
           <li>
             <div id='navbar-login'>
