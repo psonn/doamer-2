@@ -7,6 +7,14 @@
       <div class="panel-body">
         <%= pin.description %><br/>
         <strong><%= pin.user.username if pin.user %></strong>
+        <div class="vote_count">
+          <%= pin.get_likes.size %>
+            <% if pin.get_likes.size == 1 %>
+             user likes this
+            <% else %>
+             users like this
+            <% end %>
+        </div> 
         <% if current_user && pin.user == current_user %>
           <div class="actions">
             <%= link_to edit_pin_path(pin) do %>

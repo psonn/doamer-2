@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 #  resources :pins , :path => '', :only => [:show, :update, :destroy]
-  resources :pins
+  resources :pins do
+    member do
+      get 'like', to: "pins#like"
+      get 'unlike', to: "pins#unlike"
+    end
+  end
+
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   root "pins#index"
   resources :users, only: [:show]

@@ -19,6 +19,9 @@ gem 'aws-sdk', '< 2.0'
 gem 'masonry-rails', '~> 0.2.0'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
+# gem 'pace-rails', git: 'git@github.com:yovu/pace-rails.git'
+
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

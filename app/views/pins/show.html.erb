@@ -12,7 +12,23 @@
       <div class="panel-body">
         <p><%= @pin.description %></p>
         <p><strong><%= @pin.user.username if @pin.user %></strong></p>
-
+        <div class="vote_count">
+          <%= @pin.get_likes.size %>
+            <% if @pin.get_likes.size == 1 %>
+              user likes this
+            <% else %>
+              users like this
+            <% end %>
+        </div> 
+        <% if user_signed_in? %>
+        <div class="votes">
+          <% if current_user.liked? @pin %>
+            <%= link_to 'Unlike', unlike_pin_path(@pin), method: :get, remote: true, class: 'unlike_pin' %>
+          <% else %>
+          <%= link_to 'Like', like_pin_path(@pin), method: :get, remote: true, class: 'like_pin' %>
+          <% end %>
+        </div>
+        <% end %>
         <% if current_user && @pin.user == current_user %>
          <%= link_to edit_pin_path(@pin) do %>
            <span class="glyphicon glyphicon-edit"></span>

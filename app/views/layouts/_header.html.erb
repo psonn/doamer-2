@@ -22,7 +22,9 @@
           </li>
           <li class="dropdown">
             <div id="navbar-text">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag current_user.avatar.url(:mini), class: "img-rounded" %></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= image_tag current_user.avatar.url(:mini), class: "img-rounded" %>
+            </a>
             </div>
             <ul class="dropdown-menu" role="menu">
             <li>
