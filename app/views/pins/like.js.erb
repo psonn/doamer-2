@@ -1,5 +1,5 @@
 $('.like_pin').bind('ajax:success', function(){
    $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @pin.votes_for.size.to_s %>');
    $(this).closest('.like_pin').hide();
-   $(this).closest('.votes').html(' <%= link_to "Unlike", unlike_pin_path(@pin), remote: true, method: :get, class: 'unlike_pin' %>');
+   $(this).closest('.votes').html(' <%= link_to unlike_pin_path(@pin), method: :get, remote: true, class: 'unlike_pin' do %><span class="glyphicon glyphicon-thumbs-down"></span><% end %>');
 });

@@ -23,9 +23,13 @@
         <% if user_signed_in? %>
         <div class="votes">
           <% if current_user.liked? @pin %>
-            <%= link_to 'Unlike', unlike_pin_path(@pin), method: :get, remote: true, class: 'unlike_pin' %>
+            <%= link_to unlike_pin_path(@pin), method: :get, remote: true, class: 'unlike_pin' do %>
+            <span class="glyphicon glyphicon-thumbs-down"></span>
+            <% end %>
           <% else %>
-          <%= link_to 'Like', like_pin_path(@pin), method: :get, remote: true, class: 'like_pin' %>
+            <%= link_to like_pin_path(@pin), method: :get, remote: true, class: 'like_pin' do %>
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <% end %>
           <% end %>
         </div>
         <% end %>
