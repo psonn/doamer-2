@@ -2,6 +2,7 @@
   <span class="glyphicon glyphicon-menu-left"></span>
   Back
 <% end %>
+<p></p>
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -25,10 +26,12 @@
           <% if current_user.liked? @pin %>
             <%= link_to unlike_pin_path(@pin), method: :get, remote: true, class: 'unlike_pin' do %>
             <span class="glyphicon glyphicon-thumbs-down"></span>
+             Unlike
             <% end %>
           <% else %>
             <%= link_to like_pin_path(@pin), method: :get, remote: true, class: 'like_pin' do %>
             <span class="glyphicon glyphicon-thumbs-up"></span>
+             Like
             <% end %>
           <% end %>
         </div>
