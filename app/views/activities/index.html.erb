@@ -1,4 +1,4 @@
-<h1>Friend's Activities (<%= @activities.count %>)</h1>
+<h1>My Activities (<%= @activities.count %>)</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
   <% if activity.owner %>
@@ -11,3 +11,7 @@
   </span>
   </div>
 <% end %>
+
+<div class="center">
+   <%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
+</div>
