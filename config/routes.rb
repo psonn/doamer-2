@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 #  resources :pins , :path => '', :only => [:show, :update, :destroy]
   resources :pins do
     member do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   root "pins#index"
   resources :users, only: [:show]
+  resources :activities
   get "about" => "pages#about"
 
   # The priority is based upon order of creation: first created -> highest priority.

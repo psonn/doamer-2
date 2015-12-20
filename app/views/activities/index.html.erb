@@ -1,0 +1,13 @@
+<h1>Friend's Activities (<%= @activities.count %>)</h1>
+<% @activities.each do |activity| %>
+  <div class="activity">
+  <% if activity.owner %>
+  <!--%= image_tag activity.owner.avatar(:small), activity.owner %-->
+    <%= link_to activity.owner.full_name, activity.owner %>
+    <% end %>
+    <%= render_activity activity %>
+    <span class="timestamp">
+     <%= time_ago_in_words(activity.created_at) %> ago.
+  </span>
+  </div>
+<% end %>

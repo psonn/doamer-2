@@ -12,7 +12,7 @@
       </div>
       <div class="panel-body">
         <p><%= @pin.description %></p>
-        <p><strong><%= @pin.user.username if @pin.user %></strong></p>
+        <p><strong><%= link_to @pin.user.username, @pin.user if @pin.user %></strong></p>
         <div class="vote_count">
           <%= @pin.get_likes.size %>
             <% if @pin.get_likes.size == 1 %>

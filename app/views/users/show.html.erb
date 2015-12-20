@@ -7,13 +7,16 @@
     </div>
     <div id="name">
     <h1>
-      <%= @user.first_name %> <%= @user.last_name %> <small>@<%= @user.username %></small>
+      <%= @user.full_name %> <small>@<%= @user.username %></small>
     </h1>
     </div>
 </div>
 <p>
 <%= @user.email %><br />
 Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
+</p>
+<p>
+#here will be the user's activity
 </p>
 <p>
   <%= link_to "Edit account", edit_user_registration_path, class: "btn btn-success" %>

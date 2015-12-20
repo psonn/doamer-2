@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
+  def full_name
+    self.first_name << " " << self.last_name
+  end
+  def full_name=(first_name)
+    names = first_name.split(/(.+) (.+)$/)
+    self.first_name = names[0]  
+    self.last_name = names[1] 
+  end
+
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)

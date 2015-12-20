@@ -6,7 +6,7 @@
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
       <div class="panel-body">
         <%= pin.description %><br/>
-        <strong><%= pin.user.username if pin.user %></strong>
+        <strong><%= link_to pin.user.username, pin.user if pin.user %></strong>
         <div class="vote_count">
           <%= pin.get_likes.size %>
             <% if pin.get_likes.size == 1 %>
