@@ -46,6 +46,7 @@ def like
     format.html { redirect_to :back }
     format.js { render layout: false }
   end
+  @pin.create_activity :like, owner: current_user
 end
 
 def unlike
@@ -55,6 +56,7 @@ def unlike
     format.html { redirect_to :back }
     format.js { render layout: false }
   end
+  @pin.create_activity :unlike, owner: current_user
 end
 
   private
