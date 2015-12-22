@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
+  extend FriendlyId
+  friendly_id :username, use: :slugged
 
   has_many :pins, dependent: :destroy
   has_attached_file :avatar, styles: { show: "600x600>", medium: "300x300>", thumb: "100x100>", mini: "50x50>" }, default_url: "/images/:style/missing.png"

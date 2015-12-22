@@ -15,9 +15,12 @@
 <%= @user.email %><br />
 Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
 </p>
-<p>
-#User activity will be here
-</p>
-<p>
-  <%= link_to "Edit account", edit_user_registration_path, class: "btn btn-success" %>
-</p>
+<div class="actions">
+  <%= link_to activities_path, class: "btn btn-primary" do %>
+    <span class="glyphicon glyphicon-list"></span> My activity
+  <% end %>
+
+  <%= link_to edit_user_registration_path, class: "btn btn-warning" do %>
+    <span class="glyphicon glyphicon-cog"></span> Edit account
+  <% end %>
+</div>
