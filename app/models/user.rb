@@ -7,6 +7,14 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username, use: :slugged
 
+  after_validation :validate_reserved
+  def validate_reserved
+    if @errors[:friendly_id].present?
+      @errors[:username] = "is reserved. Please choose something else"
+      @errors.messages.delete(:friendly_id)
+    end
+  end
+
   has_many :pins, dependent: :destroy
   has_attached_file :avatar, styles: { show: "600x600>", medium: "300x300>", thumb: "100x100>", mini: "50x50>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
