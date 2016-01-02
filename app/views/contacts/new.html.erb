@@ -1,0 +1,33 @@
+<% provide(:title, 'Contact') %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+
+  <h1>Contact</h1>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control", autofocus: true, required: true, placeholder: "John Doe" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %><br>
+        <%= f.email_field :email, class: "form-control", required: true, placeholder: "jdoe@example.com" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :message %><br />
+        <%= f.text_area :message, class: "form-control", required: true, placeholder: "Your message", rows: 5 %>
+      </div>
+      <div class="hidden">
+        <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.button 'Send message', class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending message..."} %>
+      </div>
+    <% end %>
+  </div>  
+</div>

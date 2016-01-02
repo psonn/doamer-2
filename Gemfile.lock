@@ -105,6 +105,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mail_form (1.5.1)
+      actionmailer (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     masonry-rails (0.2.4)
       railties
     mime-types (2.99)
@@ -217,6 +220,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  mail_form
   masonry-rails (~> 0.2.0)
   paperclip (~> 4.3)
   pg
