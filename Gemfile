@@ -24,7 +24,7 @@ gem 'will_paginate-bootstrap'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'public_activity'
 gem 'friendly_id', '~> 5.1.0'
-gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal' 
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -56,6 +56,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'foreman'
+  gem 'dotenv-rails'
 end
 
 group :production do
