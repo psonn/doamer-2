@@ -24,6 +24,7 @@ gem 'will_paginate-bootstrap'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'public_activity'
 gem 'friendly_id', '~> 5.1.0'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
