@@ -184,6 +184,9 @@ footer ul li {
 
 .modal-dialog {
   position: initial;
+  button.close {
+    padding: 15px;
+  }
 }
 
 body.modal-open {
