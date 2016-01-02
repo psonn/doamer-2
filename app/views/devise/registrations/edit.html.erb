@@ -12,43 +12,43 @@
         <strong><%= @user.username %></strong> (<%= @user.first_name %> <%= @user.last_name %>) is a member since <%= @user.created_at.strftime("%d/%m/%Y") %>, has signed in <%= @user.sign_in_count %> times now and is currently logged in at IP-address <%= @user.current_sign_in_ip %>.
       </p>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :avatar %><br>
         <%= image_tag @user.avatar.url(:thumb) if @user.avatar? %>
         <%= f.file_field :avatar, class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, class: "form-control", :autofocus => true %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-6">
         <%= f.label :last_name %>
         <%= f.text_field :last_name, class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :username %>
         <%= f.text_field :username, class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :email %>
         <%= f.email_field :email, class: "form-control"%>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
         <%= f.password_field :password, class: "form-control", :autocomplete => "off" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
         <%= f.password_field :current_password, class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.button "Update user", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Updating user..."} %>
       </div>
     <% end %>

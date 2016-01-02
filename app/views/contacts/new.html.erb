@@ -3,31 +3,35 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
-
-  <h1>Contact</h1>
+      <h1>Contact</h1>
     </div>
   </div>
   <div class="panel-body">
-    <%= form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
-      <div class="form-group">
+    <%= form_for @contact do |f| %>
+
+      <div class="form-group col-md-6">
         <%= f.label :name %><br>
         <%= f.text_field :name, class: "form-control", autofocus: true, required: true, placeholder: "John Doe" %>
       </div>
-      <div class="form-group">
+
+      <div class="form-group col-md-6">
         <%= f.label :email %><br>
         <%= f.email_field :email, class: "form-control", required: true, placeholder: "jdoe@example.com" %>
       </div>
-      <div class="form-group">
+
+      <div class="form-group col-md-12">
         <%= f.label :message %><br />
         <%= f.text_area :message, class: "form-control", required: true, placeholder: "Your message", rows: 5 %>
       </div>
+
       <div class="hidden">
         <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <%= f.button 'Send message', class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending message..."} %>
       </div>
+
     <% end %>
   </div>  
 </div>
