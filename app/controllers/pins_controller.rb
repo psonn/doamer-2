@@ -2,6 +2,7 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  respond_to :html, :json
 
   def index
     @pins = Pin.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
@@ -12,6 +13,7 @@ class PinsController < ApplicationController
 
   def new
     @pin = current_user.pins.build
+    respond_modal_with @pin
   end
 
   def edit
