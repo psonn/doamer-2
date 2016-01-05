@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'
   resources "contacts", only: [:new, :create]
+  resources :users do
+    member do
+      get :follow
+      get :unfollow
+    end
+  end
   resources :users, :path => '', only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -7,27 +7,24 @@
     </div>
   </div>
   <div class="panel-body">
-    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
       <div class="form-group col-md-12">
-        <%= f.label :login %>
-        <%= f.text_field :login, class: "form-control", placeholder: "Username or email", :autofocus => true %>
+        <%= f.text_field :login, class: "form-control", placeholder: "Username or email", :autofocus => true, icon: "user" %>
       </div>
 
       <div class="form-group col-md-12">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "form-control", placeholder: :password, :autocomplete => "off" %>
+        <%= f.password_field :password, class: "form-control", placeholder: :password, :autocomplete => "off", icon: "lock" %>
       </div>
 
       <div class="form-group col-md-12">
         <div class="checkbox">
           <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
         </div>
       </div>
 
       <div class="form-group col-md-12">
-        <%= f.submit "Sign in", class: "btn btn-primary btn-lg btn-block" %>
+        <%= f.button "Sign in", class: "btn btn-primary btn-lg btn-block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."} %>
       </div>
     <% end %>
   </div>
