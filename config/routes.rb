@@ -11,16 +11,16 @@ Rails.application.routes.draw do
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
   root "pins#index"
   resources :activities
+  resources :relationships, only: [:create, :destroy]
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'
   resources "contacts", only: [:new, :create]
+  resources :users, :path => '', only: [:show]
   resources :users do
     member do
-      get :follow
-      get :unfollow
+      get :following, :followers
     end
   end
-  resources :users, :path => '', only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

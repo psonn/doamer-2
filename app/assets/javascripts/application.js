@@ -15,7 +15,6 @@
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
-//= require dropzone.min
 //= require data-confirm-modal
 //= require_tree .
 
