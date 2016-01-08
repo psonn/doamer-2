@@ -1,0 +1,28 @@
+    <div class="box panel panel-default">
+          #image goes here
+    <div class="panel-heading center">
+    <h2><%= property.title %></h2> <small>in <%= property.city %>, <%= property.state %> (<%= property.country %>)</small>
+    </div>
+      <div class="panel-body">
+        <%= property.description_short %><br/>
+        <strong><%= link_to property.user.username, property.user if property.user %></strong>
+        <div class="vote_count">
+        # vote count will go here
+        </div> 
+        <% if user_signed_in? %>
+        # voting goes here
+        <% end %>
+        <% if current_user && property.user == current_user %>
+          <div class="actions">
+            <%= link_to edit_property_path(property) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to property, method: :delete, data: { confirm: 'Do you want to delete this property?', title: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>

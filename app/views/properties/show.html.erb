@@ -1,0 +1,41 @@
+<%= link_to properties_path, class: "btn btn-primary" do %>
+  <span class="glyphicon glyphicon-menu-left"></span>
+  Back
+<% end %>
+<p></p>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+      <h2><%= @property.title %> in <%= @property.city %>, <%= @property.state %> (<%= @property.country %>)</h2>
+      </div>
+      <div class="panel-body">
+        <p><i>images go here</i></p>
+        <p><%= @property.description_long %></p>
+        <p><strong><%= link_to @property.user.username, @property.user if @property.user %></strong></p>
+        </div>
+        <div class="panel-footer">
+        <div class="vote_count">
+        # vote count goes here
+        </div> 
+        <% if user_signed_in? %>
+        <div class="votes">
+        # votes go here
+        </div>
+        <% end %>
+        <% if current_user && @property.user == current_user %>
+         <%= link_to edit_property_path(@property) do %>
+           <span class="glyphicon glyphicon-edit"></span>
+             Edit
+          <% end %>
+          <%= link_to @property, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

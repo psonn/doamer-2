@@ -16,6 +16,16 @@
     <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
+            <%= link_to properties_path do %>
+              <span class="glyphicon glyphicon-align-justify"></span> All Properties
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_property_path do %>
+              <span class="glyphicon glyphicon-plus"></span> New Property
+            <% end %>
+          </li>
+          <li>
             <%= link_to new_pin_path, data: {modal: true} do %>
               <span class="glyphicon glyphicon-plus"></span> New Pin
             <% end %>

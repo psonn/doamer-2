@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
   root "pins#index"
+  resources :properties
   resources :activities
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106102653) do
+ActiveRecord::Schema.define(version: 20160108195104) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -55,6 +55,27 @@ ActiveRecord::Schema.define(version: 20160106102653) do
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "title"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "postcode"
+    t.text     "description_long"
+    t.text     "description_short"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+  end
+
+  add_index "properties", ["city"], name: "index_properties_on_city"
+  add_index "properties", ["country"], name: "index_properties_on_country"
+  add_index "properties", ["postcode"], name: "index_properties_on_postcode"
+  add_index "properties", ["state"], name: "index_properties_on_state"
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id"
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"

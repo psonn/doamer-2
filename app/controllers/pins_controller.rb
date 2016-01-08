@@ -41,25 +41,25 @@ class PinsController < ApplicationController
     redirect_to pins_url
   end
 
-def like
-  @pin = Pin.find(params[:id])
-  @pin.liked_by current_user
-  respond_to do |format|
-    format.html { redirect_to :back }
-    format.js { render layout: false }
+  def like
+    @pin = Pin.find(params[:id])
+    @pin.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
+    @pin.create_activity :like, owner: current_user
   end
-  @pin.create_activity :like, owner: current_user
-end
 
-def unlike
-  @pin = Pin.find(params[:id])
-  @pin.unliked_by current_user
-  respond_to do |format|
-    format.html { redirect_to :back }
-    format.js { render layout: false }
+  def unlike
+    @pin = Pin.find(params[:id])
+    @pin.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
+    @pin.create_activity :unlike, owner: current_user
   end
-  @pin.create_activity :unlike, owner: current_user
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.

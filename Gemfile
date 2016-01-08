@@ -27,6 +27,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal' 
 gem 'mail_form'
 gem 'font-awesome-sass'
+gem 'country_select'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

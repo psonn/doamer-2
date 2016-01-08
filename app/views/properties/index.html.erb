@@ -1,0 +1,9 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+<div class="jumbotron center">
+<h1>Properties</h1> #search goes here
+</div>
+
+<div id="pins" class="transitions-enabled">
+  <%= render @properties %>
+</div>
