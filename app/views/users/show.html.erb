@@ -15,10 +15,6 @@
 <%= @user.email %><br />
 Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
 </p>
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<%= render 'follow_form' if user_signed_in? %>
 <% if @user == current_user %>
 <div class="actions">
   <%= link_to activities_path, class: "btn btn-primary" do %>
