@@ -20,7 +20,10 @@ class PropertiesController < ApplicationController
 	def create
 		@property = current_user.properties.build(property_params)
 	    if @property.save
-	      redirect_to @property, notice: 'Property was successfully created.'
+	    	respond_to do |format|
+	    		format.html { redirect_to @property, notice: 'Property was successfully created.'}
+	    		format.json { render layout: false }
+	    	end
 	    else
 	      render :new
 	    end
@@ -53,6 +56,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:title, :description_short, :description_long, :city, :state, :country, :latitude, :longitude, :postcode)
+      params.require(:property).permit(:title, :description_short, :description_long, :city, :state, :country, :latitude, :longitude, :postcode, :image, :remote_image_url, :image_cache, :remove_image)
     end
 end

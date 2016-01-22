@@ -28,6 +28,9 @@ gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'mail_form'
 gem 'font-awesome-sass'
 gem 'country_select'
+gem 'carrierwave'
+gem "rmagick"
+gem "fog"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
