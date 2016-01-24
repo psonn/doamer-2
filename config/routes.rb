@@ -8,13 +8,16 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
   root "pins#index"
   resources :properties
+  scope "properties/:property_id" do
+    resources :property_steps
+  end
   resources :activities
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'
   resources "contacts", only: [:new, :create]
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
   resources :users, :path => '', only: [:show]
 
   # The priority is based upon order of creation: first created -> highest priority.

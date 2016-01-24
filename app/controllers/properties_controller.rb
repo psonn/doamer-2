@@ -20,12 +20,10 @@ class PropertiesController < ApplicationController
 	def create
 		@property = current_user.properties.build(property_params)
 	    if @property.save
-	    	respond_to do |format|
-	    		format.html { redirect_to @property, notice: 'Property was successfully created.'}
-	    		format.json { render layout: false }
-	    	end
+	    	#redirect_to property_steps_path(@property), :property_id => @property.id
+	    	redirect_to property_steps_path(:id => "description", :property_id => @property.id)
 	    else
-	      render :new
+	    	render :new
 	    end
 	end
 

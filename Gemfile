@@ -31,6 +31,9 @@ gem 'country_select'
 gem 'carrierwave'
 gem "rmagick"
 gem "fog"
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'wicked'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
