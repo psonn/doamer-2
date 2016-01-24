@@ -1,13 +1,30 @@
 <%= form_for @property, url: wizard_path, html: {multipart: true} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h2>Let's post some pictures!</h2>
+    </div>
+  </div>
+  <div class="panel-body">
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
 
-  <h2>Let's post some pictures!</h2>
+      <ul>
+      <% @property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-12">
     <%= f.label :image, "Upload image" %><br>
     <%= image_tag(@property.image_url(:thumb)).to_s if @property.image? %>
     <%= f.file_field :image %>
   </div>
-  <div class="form-group col-md-6">
+
+  <div class="form-group col-md-12">
     <%= f.label :remote_image_url, "or paste image URL" %>
     <%= f.text_field :remote_image_url, class: "form-control" %>
     <%= f.hidden_field :image_cache %>
@@ -19,7 +36,8 @@
   </div>
 
   <div class="form-group col-md-12">
-      <%= f.submit "Continue" %>
+        <%= f.button "Finish", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spropertyner fa-sproperty'></i> Saving property..."} %>
+  </div> 
   </div>
-
+</div>
 <% end %>
