@@ -19,4 +19,4 @@
 /public/system/*
 .env
 Procfile
-/public/uploads/*
+/public/uploads
