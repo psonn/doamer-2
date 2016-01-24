@@ -21,5 +21,5 @@
 Procfile
 /public/uploads/*
 
-config/initializers/secret_token.rb
-config/secrets.yml
+/config/initializers/secret_token.rb
+/config/secrets.yml
