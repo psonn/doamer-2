@@ -13,7 +13,16 @@
       </div>
       <div class="panel-body">
         <p><%= @property.description_long %></p>
-        <p><strong><%= link_to @property.user.username, @property.user if @property.user %></strong></p>
+        <% if @property.user %>
+        <div class="pin-user">
+          <div class="pin-user-image">
+            <%= link_to image_tag(@property.user.avatar).to_s, @property.user %>
+          </div> 
+          <strong>
+            <%= link_to @property.user.username, @property.user %>
+          </strong>
+        </div>
+        <% end %>
         </div>
         <div class="panel-footer">
         <div class="vote_count">

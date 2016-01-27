@@ -5,7 +5,14 @@
     </div>
       <div class="panel-body">
         <%= property.description_short %><br/>
-        <strong><%= link_to property.user.username, property.user if property.user %></strong>
+        <div class="pin-user">
+          <div class="pin-user-image">
+            <%= link_to image_tag(property.user.avatar).to_s, property.user if property.user %>
+          </div> 
+          <strong>
+            <%= link_to property.user.username, property.user if property.user %>
+          </strong>
+        </div>
         <div class="vote_count">
         # vote count will go here
         </div> 

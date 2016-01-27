@@ -187,6 +187,21 @@ footer ul li {
   max-width: 100%;
 }
 
+/* Pin/property user image */
+.pin-user-image {
+  max-width: 1.5em;
+  margin-right: 0.2em;
+}
+
+.pin-user-image img {
+  max-width: 100%;
+}
+
+/* Pin user appearance */
+.pin-user {
+  display: flex;
+}
+
 /* Modal */
 
 .modal-dialog {
