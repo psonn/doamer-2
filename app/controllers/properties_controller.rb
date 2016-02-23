@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
 	before_action :set_property, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
 	before_action :correct_user, only: [:edit, :update, :destroy]
+	before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
 	def index
 		@properties = Property.order("created_at DESC")
@@ -55,5 +56,9 @@ class PropertiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
       params.require(:property).permit(:title, :description_short, :description_long, :city, :state, :country, :latitude, :longitude, :postcode, :image, :remote_image_url, :image_cache, :remove_image)
+    end
+
+    def set_s3_direct_post
+    	@s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 end

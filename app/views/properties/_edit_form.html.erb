@@ -1,0 +1,73 @@
+<%= form_for @property, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image, "Upload image" %><br>
+    <%= image_tag(@property.image_url(:thumb)).to_s if @property.image? %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label :remote_image_url, "or paste image URL" %>
+    <%= f.text_field :remote_image_url, class: "form-control" %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+
+  <div class="form-group col-md-6">
+      <h4><%= f.check_box :remove_image %> 
+      <span class="label label-danger">Remove image</span></h4>
+  </div>
+
+  <div class="form-group col-md-12">
+    <div id="dropzone" class="fade well">Drop files here</div>
+  </div>
+
+  <div class="form-group col-md-12">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control", autofocus: true %>
+  </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label :state %><br>
+    <%= f.text_field :state, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label :postcode, "Postcode or ZIP" %><br>
+    <%= f.text_field :postcode, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-md-6">
+    <%= f.label :country %> <small><i>Select one option below</i></small>
+    <%= f.country_select(:country, {selected: @property.country}, {class: "form-control"}) %>
+  </div>
+
+  <div class="form-group col-md-12">
+    <%= f.label :description_short %><br>
+    <%= f.text_area :description_short, class: "form-control", rows: 3 %>
+  </div>
+
+  <div class="form-group col-md-12">
+    <%= f.label :description_long %><br>
+    <%= f.text_area :description_long, class: "form-control", rows: 5 %>
+  </div>
+
+  <div class="actions col-md-12">
+    <%= f.button "Save property", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spropertyner fa-sproperty'></i> Saving property..."} %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "~> 2.2.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise'
 gem 'paperclip', '~> 4.3'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '~> 2'
 gem 'masonry-rails', '~> 0.2.0'
 gem 'will_paginate', '~> 3.0.5'
 gem 'will_paginate-bootstrap'
@@ -67,6 +67,8 @@ group :development, :test do
   gem 'spring'
   gem 'foreman'
   gem 'dotenv-rails'
+
+  gem 'thin'
 end
 
 group :production do

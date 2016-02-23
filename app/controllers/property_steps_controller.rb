@@ -1,6 +1,8 @@
 class PropertyStepsController < ApplicationController
   include Wicked::Wizard
   steps :description, :picture
+
+  before_action :set_s3_direct_post, only: [:show, :update]
   
   def show
   	@property = Property.find(params[:property_id])
@@ -21,5 +23,9 @@ class PropertyStepsController < ApplicationController
 
   def redirect_to_finish_wizard(options = nil)
   	redirect_to @property, notice: "Thanks for submitting a property."
+  end
+
+  def set_s3_direct_post
+  	@s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

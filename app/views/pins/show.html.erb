@@ -12,7 +12,16 @@
       </div>
       <div class="panel-body">
         <p><%= @pin.description %></p>
-        <p><strong><%= link_to @pin.user.username, @pin.user if @pin.user %></strong></p>
+        <% if @pin.user %>
+        <div class="pin-user">
+          <div class="pin-user-image">
+            <%= link_to image_tag(@pin.user.avatar).to_s, @pin.user %>
+          </div> 
+          <strong>
+            <%= link_to @pin.user.username, @pin.user %>
+          </strong>
+        </div>
+        <% end %>
         <div class="vote_count">
           <%= @pin.get_likes.size %>
             <% if @pin.get_likes.size == 1 %>

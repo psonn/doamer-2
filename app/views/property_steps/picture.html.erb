@@ -1,4 +1,4 @@
-<%= form_for @property, url: wizard_path, html: {multipart: true} do |f| %>
+<%= form_for @property, url: wizard_path, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="panel-title">
@@ -18,13 +18,13 @@
     </div>
   <% end %>
 
-  <div class="form-group col-md-12">
+  <div class="field">
     <%= f.label :image, "Upload image" %><br>
-    <%= image_tag(@property.image_url(:thumb)).to_s if @property.image? %>
+    <!--%= image_tag(@property.image_url(:thumb)).to_s if @property.image? %-->
     <%= f.file_field :image %>
   </div>
 
-  <div class="form-group col-md-12">
+  <!--div class="form-group col-md-12">
     <%= f.label :remote_image_url, "or paste image URL" %>
     <%= f.text_field :remote_image_url, class: "form-control" %>
     <%= f.hidden_field :image_cache %>
@@ -33,10 +33,10 @@
   <div class="form-group col-md-12">
       <h4><%= f.check_box :remove_image %> 
       <span class="label label-danger">Remove image</span></h4>
-  </div>
+  </div-->
 
   <div class="form-group col-md-12">
-        <%= f.button "Finish", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spropertyner fa-sproperty'></i> Saving property..."} %>
+        <%= f.button "Finish", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving property..."} %>
   </div> 
   </div>
 </div>

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { show: "600x600>", medium: "300x300>", thumb: "100x100>", mini: "50x50>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  has_many :properties
+  has_many :properties, dependent: :destroy
 
   acts_as_voter
 
