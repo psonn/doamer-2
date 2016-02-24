@@ -2,19 +2,20 @@
 <div class="col-md-4 col-md-offset-4">
 <div class="panel panel-default">
   <div class="panel-heading center">
-  <%= image_tag @user.avatar.url(:medium) %>
     <div class="panel-title">
       <h1>
       <%= @user.full_name %> <small>@<%= @user.username %></small>
       </h1>
     </div>
+    <div class="property-image">
+      <center><%= image_tag @user.avatar.url.to_s, class: "property-image" %></center>
+    </div>
   </div>
   <div class="panel-body">
     <p>
-<%= @user.email %><br />
-Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
-</p>
-
+      <%= @user.email %><br />
+      Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
+    </p>
   </div>
   <div class="panel-footer center">
 <% if @user == current_user %>
