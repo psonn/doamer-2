@@ -18,6 +18,7 @@
 //= require data-confirm-modal
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require local_time
 //= require_tree .
 
 $(document).ready(function() {

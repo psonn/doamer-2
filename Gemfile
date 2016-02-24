@@ -34,6 +34,7 @@ gem "fog"
 gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'wicked'
+gem 'local_time'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

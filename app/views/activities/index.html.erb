@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <h1>My Activities (<%= @activities.count %>)</h1>
 <% @activities.each do |activity| %>
   <div class="activity">
@@ -7,11 +8,12 @@
     <% end %>
     <%= render_activity activity %>
     <span class="timestamp">
-     <%= time_ago_in_words(activity.created_at) %> ago.
+     <%= local_time_ago activity.created_at %>
   </span>
   </div>
 <% end %>
 
 <div class="center">
    <%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
+</div>
 </div>

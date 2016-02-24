@@ -13,6 +13,9 @@
           </strong>
         </div>
         <% end %>
+        <div class="placetime">
+          Posted <%= local_time_ago pin.created_at %>
+        </div>
         <div class="vote_count">
           <%= pin.get_likes.size %>
             <% if pin.get_likes.size == 1 %>
