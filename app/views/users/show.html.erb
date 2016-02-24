@@ -1,20 +1,22 @@
-<div class="main">
-    <div class="cover">
-        <img src="https://c.o0bg.com/rf/image_1200w/Boston/2011-2020/2015/11/11/BostonGlobe.com/BigPicture/Images/2015-11-11T173902Z_1576878953_GF20000055180_RTRMADP_3_USA-VETERANSDAY-4452.jpg" />
-    </div>
-    <div class="profile">
-        <%= image_tag @user.avatar.url(:medium) %>
-    </div>
-    <div id="name">
-    <h1>
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+<div class="panel panel-default">
+  <div class="panel-heading center">
+  <%= image_tag @user.avatar.url(:medium) %>
+    <div class="panel-title">
+      <h1>
       <%= @user.full_name %> <small>@<%= @user.username %></small>
-    </h1>
+      </h1>
     </div>
-</div>
-<p>
+  </div>
+  <div class="panel-body">
+    <p>
 <%= @user.email %><br />
 Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
 </p>
+
+  </div>
+  <div class="panel-footer center">
 <% if @user == current_user %>
 <div class="actions">
   <%= link_to activities_path, class: "btn btn-primary" do %>
@@ -26,3 +28,7 @@ Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
   <% end %>
 </div>
 <% end %>
+  </div>
+</div>
+</div>
+</div>
