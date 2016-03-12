@@ -18,7 +18,7 @@ class PropertyStepsController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:title, :description_short, :description_long, :city, :state, :country, :latitude, :longitude, :postcode, :image, :remote_image_url, :image_cache, :remove_image)
+    params.require(:property).permit(:title, :description_short, :description_long, :city, :state, :country, :latitude, :longitude, :postcode, :image, :remote_image_url, :image_cache, :remove_image, :image_url)
   end
 
   def redirect_to_finish_wizard(options = nil)
