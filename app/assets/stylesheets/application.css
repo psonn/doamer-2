@@ -13,4 +13,6 @@
  *= require_tree .
  *= require_self
  *= require 'masonry/transitions'
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  */

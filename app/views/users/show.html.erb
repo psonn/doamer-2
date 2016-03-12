@@ -16,6 +16,13 @@
       <%= @user.email %><br />
       Active since <%= @user.created_at.strftime("%d/%m/%Y") %>
     </p>
+
+    <% if @user == current_user %>
+    <p>
+      Bids info for user goes here.
+    </p>
+    <% end %>
+
   </div>
   <div class="panel-footer center">
 <% if @user == current_user %>

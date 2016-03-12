@@ -16,37 +16,16 @@
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
 //= require data-confirm-modal
-//= require jquery.ui.widget
-//= require z.jquery.fileupload
 //= require local_time
+//= require jquery-fileupload
 //= require_tree .
-
-$(document).ready(function() {
-  if ($('.pagination').length) {
-    $(window).scroll(function() {
-      var url = $('.pagination .next_page').attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        $('.pagination').text("Please Wait...");
-        return $.getScript(url);
-      }
-    });
-    return $(window).scroll();
-  }
-});
-
- $(function() {
-        $('#flash').delay(500).fadeIn('normal', function() {
-            $(this).delay(2500).fadeOut();
-            });
-        });
-
 
 $(function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput    = $(elem);
     var form         = $(fileInput.parents('form:first'));
     var submitButton = form.find('input[type="submit"]');
-    var progressBar  = $("<div class='bar'></div>");
+    var progressBar  = $("<div class='progress-bar'></div>");
     var barContainer = $("<div class='progress'></div>").append(progressBar);
     fileInput.after(barContainer);
     fileInput.fileupload({
@@ -82,6 +61,7 @@ $(function() {
         // create hidden field
         var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
         form.append(input);
+        console.log("done");
       },
       fail: function(e, data) {
         submitButton.prop('disabled', false);
@@ -93,50 +73,3 @@ $(function() {
     });
   });
 });
-
-$('#fileupload').fileupload({
-    dropZone: $('#dropzone')
-});
-
-$(document).bind('dragover', function (e)
-{
-    var dropZone = $('.dropzone'),
-        foundDropzone,
-        timeout = window.dropZoneTimeout;
-        if (!timeout)
-        {
-            dropZone.addClass('in');
-        }
-        else
-        {
-            clearTimeout(timeout);
-        }
-        var found = false,
-        node = e.target;
-
-        do{
-
-            if ($(node).hasClass('dropzone'))
-            {
-                found = true;
-                foundDropzone = $(node);
-                break;
-            }
-
-            node = node.parentNode;
-
-        }while (node != null);
-
-        dropZone.removeClass('in hover');
-
-        if (found)
-        {
-            foundDropzone.addClass('hover');
-        }
-
-        window.dropZoneTimeout = setTimeout(function ()
-        {
-            window.dropZoneTimeout = null;
-            dropZone.removeClass('in hover');
-        }, 100);
-    });
