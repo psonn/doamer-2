@@ -48,7 +48,7 @@ $(function() {
           css('background', 'green').
           css('display', 'block').
           css('width', '0%').
-          text("Loading...");
+          text("Uploading...");
       },
       done: function(e, data) {
         submitButton.prop('disabled', false);
@@ -73,3 +73,6 @@ $(function() {
     });
   });
 });
+
+$(function() {
+  });

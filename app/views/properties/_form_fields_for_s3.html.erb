@@ -1,3 +1,8 @@
+<form id="fields-for-s3">
+    <% @s3_direct_post.fields.map do |name, value| %>
+        <input type="hidden" name="<%= name %>" value="<%= value %>" />
+    <% end %>
+</form>
 <%= form_for @property, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">

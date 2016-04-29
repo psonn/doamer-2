@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
 #  resources :pins , :path => '', :only => [:show, :update, :destroy]
   resources :pins do
     member do
@@ -16,6 +20,10 @@ Rails.application.routes.draw do
   resources :activities
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'
+  # error pages
+  %w( 400 404 422 500 503 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
   resources "contacts", only: [:new, :create]
   devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'} 
   resources :users, :path => '', only: [:show]

@@ -1,5 +1,5 @@
     <div class="box panel panel-default">
-      <%= link_to image_tag(property.image_url).to_s, property if property.image? %>
+      <%= link_to image_tag(property.image.url).to_s, property if property.image? %>
     <div class="panel-heading center">
     <h2><%= property.title %></h2> <small>in <%= property.city %>, <%= property.state %> (<%= property.country %>)</small>
     </div>
