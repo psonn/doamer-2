@@ -1,4 +1,4 @@
-<%= form_for @property, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
+<%= form_for @property, html: { multipart: true } do |f| %>
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -11,17 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image, "Upload image" %><br>
-    <%= image_tag(@property.image_url(:thumb)).to_s if @property.image? %>
-    <%= f.file_field :image %>
-  </div>
+<% if @property.property_pictures.any? %>
+<% @property.property_pictures.each do |property_picture| %>
+  <ul>
+    <%= image_tag property_picture.avatar_url.url(:thumb) %>
+    <%= property_picture.name if property_picture.name? %>
+  </ul>
+<% end %>
+<% else%>
+  <p>no pics here</p>
+<% end %>
 
-  <div class="form-group col-md-6">
-    <%= f.label :remote_image_url, "or paste image URL" %>
-    <%= f.text_field :remote_image_url, class: "form-control" %>
-    <%= f.hidden_field :image_cache %>
+  <%= f.fields_for :property_pictures do |property_picture| %>
+  <div class="form-group col-md-12">
+    <%= property_picture.label :avatar_url, "Add a pic" %><br>
+    <%= property_picture.hidden_field :avatar_url_cache %>
+    <%= property_picture.file_field :avatar_url, class: "form-control" %>
+    <%= property_picture.check_box :_destroy %>
+    <%= property_picture.label :_destroy, 'remove' %>
   </div>
+  <% end %>
 
   <div class="form-group col-md-12">
     <%= f.label :title %><br>
@@ -59,6 +68,6 @@
   </div>
 
   <div class="actions col-md-12">
-    <%= f.button "Save property", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spropertyner fa-sproperty'></i> Saving property..."} %>
+    <%= f.button "Save property", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving property..."} %>
   </div>
 <% end %>

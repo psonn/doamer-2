@@ -32,8 +32,6 @@ gem 'carrierwave'
 gem "rmagick"
 gem "fog"
 gem "jquery-fileupload-rails"
-gem 'carrierwave_direct'
-gem 'sidekiq'
 gem 'wicked'
 gem 'local_time'
 

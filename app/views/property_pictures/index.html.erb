@@ -1,0 +1,8 @@
+<div class="jumbotron center">
+<h1>Property pictures</h1>
+<%= link_to 'New Property picture', new_property_picture_path, class: "btn btn-primary" %>
+</div>
+
+<div id="pins" class="transitions-enabled">
+  <%= render @property_pictures %>
+</div>

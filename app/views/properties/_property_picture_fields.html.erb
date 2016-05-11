@@ -1,0 +1,6 @@
+<fieldset>
+  <%= f.label :avatar_url, "Add pic" %><br />
+  <%= f.file_field :avatar_url %><br />
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Delete", '#', class: 'remove_fields' %>
+</fieldset>

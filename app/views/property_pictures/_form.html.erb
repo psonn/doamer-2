@@ -1,0 +1,25 @@
+<%= form_for @property_picture, :html => {:multipart => true} do |f| %>
+  <% if @property_picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@property_picture.errors.count, "error") %> prohibited this property_picture from being saved:</h2>
+
+      <ul>
+      <% @property_picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-md-12">
+    <%= f.label :avatar_url %><br>
+    <%= f.file_field :avatar_url %>
+  </div>
+  <div class="form-group col-md-12">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control", autofocus: true %>
+  </div>
+  <div class="actions col-md-12">
+    <%= f.button "Save picture", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving picture..."} %>
+  </div>
+<% end %>

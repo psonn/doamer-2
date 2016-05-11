@@ -14,10 +14,12 @@ Rails.application.routes.draw do
 
   root "pins#index"
   resources :properties
+  resources :property_pictures
   scope "properties/:property_id" do
     resources :property_steps
   end
   resources :activities
+  resources :pictures, :only => [:index, :create, :destroy]
   get "about" => "pages#about"
   get 'contact' => 'contacts#new'
   # error pages

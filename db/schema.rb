@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312200526) do
+ActiveRecord::Schema.define(version: 20160508232049) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20160312200526) do
 
 # Could not dump table "properties" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "property_pictures", force: :cascade do |t|
+    t.string   "name"
+    t.string   "avatar_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "property_id"
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"

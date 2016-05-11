@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @property_picture.name %>
+</p>
+
+<p>
+  <strong>Avatar url:</strong>
+  <%= image_tag @property_picture.avatar_url %>
+</p>
+
+<%= link_to 'Edit', edit_property_picture_path(@property_picture) %> |
+<%= link_to 'Back', property_pictures_path %>

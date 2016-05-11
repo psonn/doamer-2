@@ -1,0 +1,17 @@
+    <div class="box panel panel-default">
+      <%= link_to image_tag(property_picture.avatar_url).to_s, property_picture %>
+      <div class="panel-body">
+        <%= property_picture.name %><br/>
+        <!--% if current_user && property_picture.user == current_user %-->
+          <div class="actions">
+            <%= link_to edit_property_picture_path(property_picture) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to property_picture, method: :delete, data: { confirm: 'Do you want to delete this property picture?', title: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+      </div>
+    </div>

@@ -1,4 +1,11 @@
-<%= form_for @property, html: {multipart: true} do |f| %>
+<%= form_for @property, url: wizard_path, html: {multipart: true} do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h2>Tell us a little bit about your property</h2>
+    </div>
+  </div>
+  <div class="panel-body">
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -36,7 +43,9 @@
     <%= f.country_select(:country, {selected: @property.country}, {class: "form-control"}) %>
   </div>
 
-  <div class="actions col-md-12">
-    <%= f.button "Continue", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Loading next step..."} %>
+  <div class="form-group col-md-12">
+        <%= f.button "Continue", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spropertyner fa-sproperty'></i> Loading next step..."} %>
+  </div> 
   </div>
+</div>
 <% end %>
