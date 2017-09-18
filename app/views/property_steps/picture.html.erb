@@ -18,24 +18,10 @@
     </div>
   <% end %>
 
-  <% if @property.property_pictures.any? %>
-    <% @property.property_pictures.each do |property_picture| %>
-      <ul>
-        <%= image_tag property_picture.avatar_url.url(:thumb) %>
-        <%= property_picture.name if property_picture.name? %>
-      </ul>
-    <% end %>
-  <% else%>
-    <p>no pics here</p>
-  <% end %>
-
   <%= f.fields_for :property_pictures do |property_picture| %>
   <div class="form-group col-md-12">
     <%= property_picture.label :avatar_url, "Add a pic" %><br>
-    <%= property_picture.hidden_field :avatar_url_cache %>
     <%= property_picture.file_field :avatar_url, class: "form-control" %>
-    <%= property_picture.check_box :_destroy %>
-    <%= property_picture.label :_destroy, 'remove' %>
   </div>
   <% end %>
 

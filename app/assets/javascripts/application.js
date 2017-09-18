@@ -18,6 +18,7 @@
 //= require data-confirm-modal
 //= require local_time
 //= require jquery-fileupload
+//= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.ui.widget
 //= require z.jquery.fileupload

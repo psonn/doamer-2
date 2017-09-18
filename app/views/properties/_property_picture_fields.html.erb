@@ -1,6 +1,8 @@
-<fieldset>
-  <%= f.label :avatar_url, "Add pic" %><br />
-  <%= f.file_field :avatar_url %><br />
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "Delete", '#', class: 'remove_fields' %>
-</fieldset>
+    <fieldset>
+    <%= f.label :avatar_url, "Add a pic" %><br>
+    <%= f.hidden_field :avatar_url_cache %>
+    <%= f.file_field :avatar_url, class: "form-control" %>
+    <%= image_tag f.avatar_url.url(:thumb) %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to 'remove', '#', class: "remove_fields" %>
+  </fieldset>

@@ -10,7 +10,7 @@
       <center>
         <% if @property.property_pictures.any? %>
           <% @property.property_pictures.each do |property_picture| %>
-              <%= image_tag property_picture.avatar_url.url(:thumb), class: "property-image" %>
+              <%= image_tag property_picture.avatar_url, class: "property-image" %>
           <% end %>
         <% else%>
           <p>no pics here</p>
