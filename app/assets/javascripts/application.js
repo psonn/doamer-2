@@ -16,7 +16,7 @@
 //= require masonry/jquery.masonry
 //= require masonry/jquery.imagesloaded.min
 //= require data-confirm-modal
-//= require local_time
+//= require local-time
 //= require jquery-fileupload
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl

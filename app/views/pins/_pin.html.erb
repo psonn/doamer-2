@@ -6,7 +6,10 @@
         <% if pin.user %>
         <div class="pin-user">
           <div class="pin-user-image">
-            <%= link_to image_tag(pin.user.avatar).to_s, pin.user %>
+            <%#= link_to image_tag(pin.user.avatar).to_s, pin.user %>
+            <%= link_to pin.user.avatar.url do %>
+              <%= image_tag pin.user.avatar.url, class: "thumbnail" %>
+            <% end %>
           </div> 
           <strong>
             <%= link_to pin.user.username, pin.user %>

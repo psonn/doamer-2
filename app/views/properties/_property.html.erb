@@ -8,7 +8,10 @@
         <% if property.user %>
         <div class="pin-user">
           <div class="pin-user-image">
-            <%= link_to image_tag(property.user.avatar).to_s, property.user %>
+            <%#= link_to image_tag(property.user.avatar).to_s, property.user %>
+            <%= link_to property.user.avatar.url do %>
+              <%= image_tag property.user.avatar.url, class: "thumbnail" %>
+            <% end %>
           </div> 
           <strong>
             <%= link_to property.user.username, property.user %>
