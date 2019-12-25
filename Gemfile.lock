@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/ifad/data-confirm-modal.git
+  remote: https://github.com/ifad/data-confirm-modal.git
   revision: 52b12473bb110e2437b06e262b0435741ceac75c
   specs:
     data-confirm-modal (1.6.2)
@@ -323,7 +323,7 @@ GEM
     msgpack (1.2.6)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.10.1)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (1.1.4)
