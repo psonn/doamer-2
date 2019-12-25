@@ -1,4 +1,4 @@
-class AddAttachmentImageToPins < ActiveRecord::Migration
+class AddAttachmentImageToPins < ActiveRecord::Migration[5.2]
   def self.up
     change_table :pins do |t|
       t.attachment :image
